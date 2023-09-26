@@ -5,15 +5,21 @@ on:
     branches: [ main ]
 
 jobs:
+
         
   deploy-staging:
     name: Deploy to staging
+    environment:
+        name: staging
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Staging"
+      - run: echo "This is staging environment"
+
         
   deploy-production:
     name: Deploy to production
+    environment:
+        name: production
     needs: [deploy-staging]
     runs-on: ubuntu-latest
     steps:
